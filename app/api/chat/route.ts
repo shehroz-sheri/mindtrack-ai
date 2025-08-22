@@ -4,7 +4,7 @@ export const dynamic = "force-dynamic";
 import Groq from 'groq-sdk';
 
 const groq = new Groq({
-  apiKey: "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",
+  apiKey: process.env.GROQ_API_KEY,
 });
 
 // Crisis keywords that trigger safety responses

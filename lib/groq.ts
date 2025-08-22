@@ -1,7 +1,7 @@
 import Groq from 'groq-sdk';
 
 const groq = new Groq({
-  apiKey: "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",
+  apiKey: process.env.NEXT_PUBLIC_GROQ_API_KEY!,
 });
 
 export async function generateAIReflection(journalText: string): Promise<string> {
