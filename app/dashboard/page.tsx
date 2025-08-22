@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { AlertTriangle, Download, FileText, BarChart3, TrendingUp, Calendar, Heart } from 'lucide-react';
 import SupportiveChat from '@/components/SupportiveChat';
+import Footer from '@/components/Footer';
 
 export default function Dashboard() {
   const { user } = useAuth();
@@ -529,6 +530,7 @@ export default function Dashboard() {
           </div>
         </div>
       </main>
+      <Footer/>
     </ProtectedRoute>
   );
 }

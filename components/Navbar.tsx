@@ -41,7 +41,7 @@ export default function Navbar() {
           </div>
           
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+            <div className="ml-10 flex items-baseline space-x-5">
               <Link
                 href="/"
                 className={`px-3 py-2 text-sm font-medium transition-colors ${
