@@ -44,6 +44,7 @@ export default function SupportiveChat({ entries }: SupportiveChatProps) {
       last14Days.setDate(last14Days.getDate() - 14);
       
       const recentEntries = entries.filter(entry => {
+        // @ts-ignore
         const entryDate = entry.timestamp.toDate ? entry.timestamp.toDate() : new Date(entry.timestamp);
         return entryDate >= last14Days;
       });
@@ -55,6 +56,7 @@ export default function SupportiveChat({ entries }: SupportiveChatProps) {
 
       // Get 3-5 most recent entries
       const recentSnippets = entries.slice(0, 5).map(entry => {
+        // @ts-ignore
         const date = entry.timestamp.toDate ? entry.timestamp.toDate() : new Date(entry.timestamp);
         const snippet = entry.text.length > 100 ? entry.text.substring(0, 100) + '...' : entry.text;
         const moodText = entry.mood ? ` (Mood: ${entry.mood}/5)` : '';
@@ -65,6 +67,7 @@ export default function SupportiveChat({ entries }: SupportiveChatProps) {
       const today = new Date();
       today.setHours(0, 0, 0, 0);
       const todayEntry = entries.find(entry => {
+        // @ts-ignore
         const entryDate = entry.timestamp.toDate ? entry.timestamp.toDate() : new Date(entry.timestamp);
         entryDate.setHours(0, 0, 0, 0);
         return entryDate.getTime() === today.getTime();
