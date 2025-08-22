@@ -28,6 +28,7 @@ export async function POST(request: NextRequest) {
     entries.forEach(entry => {
       const timestamp = entry.timestamp.toDate ? 
         entry.timestamp.toDate().toISOString() : 
+        // @ts-ignore
         new Date(entry.timestamp).toISOString();
       
       const row = [
