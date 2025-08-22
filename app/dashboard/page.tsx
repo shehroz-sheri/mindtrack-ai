@@ -71,7 +71,9 @@ export default function Dashboard() {
     
     // Calculate streak (consecutive days with entries)
     const sortedEntries = [...entries].sort((a, b) => {
+      // @ts-ignore
       const dateA = a.timestamp.toDate ? a.timestamp.toDate() : new Date(a.timestamp);
+      // @ts-ignore
       const dateB = b.timestamp.toDate ? b.timestamp.toDate() : new Date(b.timestamp);
       return dateB.getTime() - dateA.getTime();
     });
@@ -81,7 +83,9 @@ export default function Dashboard() {
     today.setHours(0, 0, 0, 0);
     
     for (let i = 0; i < sortedEntries.length; i++) {
+      // @ts-ignore
       const entryDate = sortedEntries[i].timestamp.toDate ? 
+        // @ts-ignore
         sortedEntries[i].timestamp.toDate() : new Date(sortedEntries[i].timestamp);
       entryDate.setHours(0, 0, 0, 0);
       
@@ -103,6 +107,7 @@ export default function Dashboard() {
       .slice(-14) // Last 14 entries for better readability
       .reverse()
       .map((entry) => {
+        // @ts-ignore
         const date = entry.timestamp.toDate ? entry.timestamp.toDate() : new Date(entry.timestamp);
         return {
         date: date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
@@ -210,7 +215,7 @@ export default function Dashboard() {
         <Navbar />
         <div className="pt-24 pb-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-3 gap-8">
+            <div className="mb-4">
               {/* Main Content */}
               <div className="lg:col-span-2">
                 <div className="mb-12">
@@ -515,7 +520,7 @@ export default function Dashboard() {
               </div>
 
               {/* Right Sidebar - Supportive Chat */}
-              <div className="lg:col-span-1">
+              <div className="mt-6">
                 <div className="sticky top-24">
                   <SupportiveChat entries={entries} />
                 </div>
